@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Swachhnet - Connecting Citizens and Municipalities for a Cleaner City</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">
+            <a href="#home">SwachhNet</a>
+        </div>
+        <div class="menu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#why-swachhnet" class="nav-link">Why SwachhNet?</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#map" class="nav-link">Find Dustbins</a>
+            <a href="#report" class="nav-link">Report Waste</a>
+            <a href="#rewards" class="nav-link">Rewards</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="hero" id="home">
+        <div class="hero-content">
+         <div class="text-overlay">
+            <h1 id="animated-text">Join the SwachhNet Revolution!</h1>
+        </div>        
+
+
+            <div class="cta-buttons">
+                <a href="#map" class="cta-button">Find Dustbins</a>
+                <a href="#report" class="cta-button">Report Waste</a>
+            </div> 
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <section id="why-swachhnet" class="why-swachhnet-section">
+        <div class="section-header">
+            <h2 class="section-title">Why SwachhNet?</h2>
+            <p class="section-subtitle">Revolutionizing Waste Management for a Cleaner Tomorrow</p>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <img src="images/problem-image.png" alt="Overflowing Dustbin" class="section-image">
+            </div>
+            <div class="text-container">
+                <p><br>
+                    Every day, our streets, neighborhoods, and public spaces suffer from unorganized waste disposal. Overflowing dustbins, scattered garbage, and a lack of proper disposal awareness contribute to a serious health crisis, leading to diseases, infections, and pollution.
+                </p>
+                <p>
+                    Despite growing urbanization, waste management remains an overlooked issue. Many people are unaware of the dangers of unmanaged waste and its long-term effects on health, sanitation, and the environment. Additionally, the lack of proper disposal systems damages a country's reputation, impacting tourism, economy, and overall well-being.
+                </p>            </div>
+        </div>
+        <div class="row reverse">
+            <div class="image-container">
+                <img src="images/solution-image.png" alt="Clean Street" class="section-image">
+            </div>
+            <div class="text-container"><br><br>
+                <p><br><br><br><br>
+                    SwachhNet was created to bridge this gap—empowering citizens with smart tools to manage waste efficiently and fostering a cleaner, healthier society.
+                </p>  
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="images/about-image.png" alt="About Us">
+          </div>
+          <div class="about-text">
+            <p class="about-subtitle">"A cleaner tomorrow starts today!"</p>
+            <p>
+              At <strong>SwachhNet</strong>, we believe in leveraging technology to create a sustainable and cleaner environment.
+              Our platform connects citizens with nearby dustbins, enables waste reporting, and rewards responsible disposal.
+            </p>
+            <ul class="about-list">
+                <li><span><strong>Reduce littering</strong> with real-time dustbin tracking.</span></li>
+                <li><span><strong>Encourage responsible disposal</strong> through a reward system.</span></li>
+                <li><span><strong>Engage communities</strong> in making cities cleaner.</span></li>
+              </ul>                 
+            <p class="about-call">Join us in transforming waste management through smart technology and community participation! 🌱♻️</p>
+          </div>
+        </div>
+      </section>
+    
+    
+
+    <section id="features">
+        <h2 class="features-heading">Features</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <img src="images/find-dustbin.jpg" alt="Find Dustbin Icon" class="feature-icon">
+                <h3>Find Nearby Dustbins</h3>
+                <p>Locate the nearest dustbins using GPS. Our interactive map shows you all available dustbins in your area.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/report-waste.jpg" alt="Report Waste Icon" class="feature-icon">
+                <h3>Report Waste</h3>
+                <p>Upload photos of waste to notify authorities. Help keep your city clean by reporting waste that needs attention.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/earn-rewards.jpg" alt="Earn Rewards Icon" class="feature-icon">
+                <h3>Earn Rewards</h3>
+                <p>Earn points for using dustbins and reporting waste. Redeem your points for exciting rewards and discounts.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/track-progress.jpg" alt="Track Progress Icon" class="feature-icon">
+                <h3>Track Progress</h3>
+                <p>See how your contributions are making a difference. Monitor your impact on the environment with detailed statistics.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="map-section">
+        <!-- Separate Header -->
+        <div class="section-header">
+            <h2 class="section-title">Find Nearby Dustbins</h2>
+        </div>
+    
+        <!-- Map Container -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    
+        <!-- Legend -->
+        <div class="legend">
+            <div><span class="legend-icon full"></span> Full Dustbin</div>
+            <div><span class="legend-icon not-full"></span> Not Full</div>
+        </div>
+    </div>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=Your_Google_Maps_API_Key"></script>
+
+        <script>
+        function initMap() {
+            // Hardcoded user location (Ambedkar Statue, Boduppal, Hyderabad)
+            const userLocation = { lat: 17.5007, lng: 78.5594 };
+    
+            // Map options
+            var mapOptions = {
+                center: userLocation,
+                zoom: 15,
+                mapTypeId: 'roadmap'
+            };
+    
+            // Initialize map
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    
+            // Add user's location marker (blue dot)
+            new google.maps.Marker({
+                position: userLocation,
+                map: map,
+                icon: {
+                    url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                },
+                title: "Your Location"
+            });
+    
+            // Generate 300 dustbin locations, more concentrated near user location
+            var locations = [];
+            for (var i = 0; i < 300; i++) {
+                let isNearUser = i < 100; // First 100 are near the user
+                locations.push({
+                    lat: isNearUser ? userLocation.lat + (Math.random() * 0.02 - 0.01) : 17.35 + Math.random() * 0.3,
+                    lng: isNearUser ? userLocation.lng + (Math.random() * 0.02 - 0.01) : 78.3 + Math.random() * 0.6,
+                    isFull: i < 60 // First 60 are full (red), rest are not full (green)
+                });
+            }
+    
+            // Add dustbin markers to the map
+            locations.forEach(function(location) {
+                new google.maps.Marker({
+                    position: { lat: location.lat, lng: location.lng },
+                    map: map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: location.isFull ? "red" : "green",
+                        fillOpacity: 1,
+                        scale: 6,
+                        strokeColor: "white",
+                        strokeWeight: 1
+                    },
+                    title: location.isFull ? "Full Dustbin" : "Not Full"
+                }).addListener("click", function() {
+                    window.open(`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`, "_blank");
+                });
+            });
+        }
+    
+        // Initialize map on window load
+        window.onload = initMap;
+    </script>
+    
+
+    <div class="report-section" id="report">
+        <h2 class="section-title">Report Waste</h2>
+        <div class="report-container">
+            <div class="report-form">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Enter location or use current location">
+                </div>
+                <div class="form-group">
+                    <label for="waste-type">Waste Type</label>
+                    <select id="waste-type">
+                        <option value="">Select waste type</option>
+                        <option value="plastic">Plastic</option>
+                        <option value="paper">Paper</option>
+                        <option value="glass">Glass</option>
+                        <option value="organic">Organic</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Describe the issue or generate with AI"></textarea>
+                    <button type="button" id="generate-description-btn" class="generate-btn">Generate with AI</button>
+
+                </div>
+                <div class="form-group">
+                    <label for="photo">Upload Photo</label>
+                    <div class="file-upload">
+                        <input type="file" id="photo" accept="image/*">
+                        <div class="upload-btn">Choose File</div>
+                        <span class="file-name">No file chosen</span>
+                    </div>
+                    <!-- Add a "Generate with AI" button -->
+                </div>
+                <button type="submit" class="submit-btn">Submit Report</button>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Rewards Page -->
+<div class="page" id="rewards">
+    <div class="container">
+        <!-- Centered Heading -->
+        <div class="section-header">
+            <h1 class="section-title">Rewards</h1>
+            <p class="section-subtitle">Earn points and redeem exciting eco-friendly rewards!</p>
+        </div>
+
+        <!-- Points Card -->
+        <div class="points-card">
+            <div class="points-header">
+                <div>
+                    <h2>Your Points</h2>
+                    <p>Keep earning points by reporting waste and contributing to a cleaner environment!</p>
+                </div>
+                <div class="points-display">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <span>100</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 20%"></div>
+            </div>
+            <p class="points-info">100/500 points to next reward</p>
+        </div>
+
+        <!-- Available Rewards -->
+        <h2>Available Rewards</h2>
+        <div class="rewards-grid">
+            <!-- Reward Card 1 -->
+            <div class="reward-card">
+                <img src="images/reusable-bottle.png" alt="Reusable Water Bottle">
+                <div class="reward-info">
+                    <h3>Reusable Water Bottle</h3>
+                    <div class="reward-footer">
+                        <div class="points">
+                            <i data-lucide="star"></i>
+                            <span>200 points</span>
+                        </div>
+                        <button class="btn-primary">
+                            <i data-lucide="gift"></i>
+                            <span>Redeem</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reward Card 2 -->
+            <div class="reward-card">
+                <img src="images/eco-friendly-kit.png" alt="Eco-Friendly Kit">
+                <div class="reward-info">
+                    <h3>Eco-Friendly Kit</h3>
+                    <div class="reward-footer">
+                        <div class="points">
+                            <i data-lucide="star"></i>
+                            <span>300 points</span>
+                        </div>
+                        <button class="btn-primary">
+                            <i data-lucide="gift"></i>
+                            <span>Redeem</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reward Card 3 -->
+            <div class="reward-card">
+                <img src="images/compost-bin.png" alt="Compost Bin">
+                <div class="reward-info">
+                    <h3>Compost Bin</h3>
+                    <div class="reward-footer">
+                        <div class="points">
+                            <i data-lucide="star"></i>
+                            <span>400 points</span>
+                        </div>
+                        <button class="btn-primary">
+                            <i data-lucide="gift"></i>
+                            <span>Redeem</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reward Card 4 -->
+            <div class="reward-card">
+                <img src="images/reusable-bags.png" alt="Reusable Shopping Bags">
+                <div class="reward-info">
+                    <h3>Reusable Shopping Bags</h3>
+                    <div class="reward-footer">
+                        <div class="points">
+                            <i data-lucide="star"></i>
+                            <span>150 points</span>
+                        </div>
+                        <button class="btn-primary">
+                            <i data-lucide="gift"></i>
+                            <span>Redeem</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Leaderboard</h2>
+                <p class="section-subtitle">Top contributors making a difference!</p>
+            </div>
+            <div class="leaderboard">
+                <div class="leaderboard-card">
+                    <div class="rank">1</div>
+                    <div class="user-info">
+                        <h3>EcoWarrior123</h3>
+                        <p>1200 points</p>
+                    </div>
+                </div>
+                <div class="leaderboard-card">
+                    <div class="rank">2</div>
+                    <div class="user-info">
+                        <h3>GreenHero456</h3>
+                        <p>1100 points</p>
+                    </div>
+                </div>
+                <div class="leaderboard-card">
+                    <div class="rank">3</div>
+                    <div class="user-info">
+                        <h3>CleanChamp789</h3>
+                        <p>1000 points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+        <!-- Chatbot Logo (Floating Icon) -->
+        <div class="chatbot-logo" id="chatbot-logo">💬</div>
+        <div class="chatbot-tooltip" id="chatbot-tooltip">Chat with our AI bot</div>
+        <div class="chatbot-container" id="chatbot-container">
+            <div class="chat-header">
+                SwachhNet Assistant
+                <span class="minimize-btn" id="minimize-btn">▼</span>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-message bot">
+                    <div class="message-content">Hello! I'm SwachhNet's eco-assistant. How can I help you today?</div>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#map">Find Dustbins</a>
+                <a href="#report">Report Waste</a>
+                <a href="#rewards">Rewards</a>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Swachhnet is dedicated to connecting citizens and municipalities for a cleaner city through smart technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="40292e262f003337212328282e25346e232f2d">[email&#160;protected]</a></p>
+                <p>Phone: +91 XXXXX XXXXX</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2023 Smart Dustbin Network. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+</body>
+</html>
