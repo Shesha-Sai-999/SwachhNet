@@ -47,107 +47,209 @@ Getting Started
 
 Ready to run SwachhNet yourself? The project has two parts: a backend (Cloudflare Worker) and a frontend (Firebase Hosting). Follow these steps to set it up after cloning the repo.
 
+Below is a structured and updated version of the "Getting Started" section for your `README.md`, tailored to your specific project structure. Your repository contains two folders: `swachhnet-firebase/temp` for static frontend files and `swachhnet-wrangler` for the backend `index.js` file (Cloudflare Worker for the chatbot API). I’ve adjusted the instructions to reflect this setup, including a brief explanation of cloning the repo, installing Cloudflare Wrangler and Firebase CLI, and deploying both components. Since you mentioned that users need to tune components according to their `.jsonc` files (likely referring to `package.json` or `wrangler.toml`), I’ve added notes to guide them.
+
+
+---
+
+
+## Getting Started
+
+
+Ready to set up SwachhNet? The project is split into two parts: a backend (Cloudflare Worker) in `swachhnet-wrangler/` and a frontend (static files) in `swachhnet-firebase/temp/`. Here’s how to get it running on your machine, step by step.
+
+
 ### Prerequisites
 
-Before you begin, ensure you have:
 
-*   **Node.js** (v14 or higher) and **npm** - Install from [nodejs.org](https://nodejs.org).
-    
-*   **Git** - Get it from [git-scm.com](https://git-scm.com).
-    
-*   A **Cloudflare account** - Sign up at [cloudflare.com](https://cloudflare.com).
-    
-*   A **Firebase account** - Sign up at [firebase.google.com](https://firebase.google.com).
-    
-*   API keys for:
-    
-    *   **Google Maps** (for the frontend map) - Get one from [Google Cloud Console](https://console.cloud.google.com).
-        
-    *   **Gemini AI** (for backend chatbot and image analysis) - Obtain from your provider.
-        
+Before you start, make sure you have the following installed:
 
-Install the necessary CLIs globally:
 
+- **Node.js (v14 or higher) and npm**: Powers both backend and frontend. Download from [nodejs.org](https://nodejs.org).
+- **Cloudflare Account**: For the backend. Sign up at [cloudflare.com](https://cloudflare.com).
+- **Firebase Account**: For hosting the frontend. Sign up at [firebase.google.com](https://firebase.google.com).
+- **API Keys**:
+  - **Google Maps**: For the frontend map. Get one from [Google Cloud Console](https://console.cloud.google.com).
+  - **Gemini AI**: For the backend chatbot and image analysis. Obtain from your provider (e.g., Google AI services).
+
+
+#### Install CLIs Globally
+
+
+You’ll need these command-line tools:
+
+
+```bash
 npm install -g @cloudflare/wrangler
 npm install -g firebase-tools
+```
 
-Log in to both services:
+
+#### Log In to Services
+
+
+Authenticate with Cloudflare and Firebase:
+
 
 ```bash
 wrangler login
 firebase login
 ```
+
+
+### Cloning the Repository
+
+
+To get the project files:
+
+
+1. Open your terminal (or command prompt).
+2. Run this command to clone the repo:
+   ```bash
+   git clone https://github.com/Shesha-Sai-999/swachhnet.git
+   ```
+   Replace `yourusername` with your actual GitHub username.
+3. Move into the project folder:
+   ```bash
+   cd swachhnet
+   ```
+
+
+You’ll see two folders: `swachhnet-wrangler/` (backend) and `swachhnet-firebase/temp/` (frontend static files).
+
+
 ### Backend Setup (Cloudflare Worker)
 
-The backend lives in the backend/ folder and runs on Cloudflare Workers.
 
-1.  **Clone the repository:**bashCollapseWrapCopygit clone https://github.com/yourusername/swachhnet.gitcd swachhnet
-    
-2.  **Navigate to the backend folder:**bashCollapseWrapCopycd backend
-    
-3.  **Install dependencies:**bashCollapseWrapCopynpm install
-    
-4.  **Set up environment variables:**
-    
-    *   Edit wrangler.toml to include your Gemini API key:tomlCollapseWrapCopyname = "swachhnet-backend"compatibility\_date = "2023-10-01"\[vars\]GEMINI\_API\_KEY = "your\_gemini\_api\_key\_here"
-        
-    *   Replace "your\_gemini\_api\_key\_here" with your actual Gemini API key.
-        
-5.  **Test the worker locally:**bashCollapseWrapCopywrangler dev
-    
-    *   Open http://localhost:8787 in your browser. You should see "✅ Server is running!" for GET requests to /.
-        
-    *   Test endpoints like /api/chat (POST with { "userMessage": "Hello" }) or /api/analyze-image (POST with an image file).
-        
-6.  **Deploy to Cloudflare:**bashCollapseWrapCopywrangler deploy
-    
-    *   After deployment, you’ll get a URL (e.g., https://swachhnet-backend.yourusername.workers.dev). Save this—you’ll need it for the frontend.
-        
+The backend, located in `swachhnet-wrangler/`, runs on Cloudflare Workers and handles the chatbot API (`index.js`).
+
+
+1. **Navigate to the backend folder:**
+   ```bash
+   cd swachhnet-wrangler
+   ```
+
+
+2. **Set up project configuration:**
+   - The repo only includes `index.js`. You’ll need a `package.json` and `wrangler.toml` to deploy it.
+   - Create a basic `package.json` (if not present):
+     ```bash
+     npm init -y
+     ```
+   - Create or edit `wrangler.toml` in this folder with:
+     ```toml
+     name = "swachhnet-backend"
+     compatibility_date = "2023-10-01"
+     [vars]
+     GEMINI_API_KEY = "your_gemini_api_key_here"
+     ```
+     Replace `"your_gemini_api_key_here"` with your Gemini API key.
+
+
+3. **Install dependencies:**
+   - Since `index.js` is standalone, no extra npm packages are needed unless you add more features. If you do, run:
+     ```bash
+     npm install
+     ```
+
+
+4. **Test locally:**
+   ```bash
+   wrangler dev
+   ```
+   - Open `http://localhost:8787` in your browser. You should see "✅ Server is running!" for a GET request to `/`.
+   - Test endpoints:
+     - POST to `/api/chat` with `{ "userMessage": "Hello" }` (use a tool like Postman).
+     - POST to `/api/analyze-image` with an image file.
+
+
+5. **Deploy to Cloudflare:**
+   ```bash
+   wrangler deploy
+   ```
+   - After deployment, you’ll get a URL (e.g., `https://swachhnet-backend.yourusername.workers.dev`). Save this for the frontend setup.
+
+
+**Note:** If you encounter errors, ensure `wrangler.toml` matches your Cloudflare account settings (e.g., account ID if required). Check the [Cloudflare Workers docs](https://developers.cloudflare.com/workers/) for troubleshooting.
+
 
 ### Frontend Setup (Firebase Hosting)
 
-The frontend is in the frontend/ folder and consists of static files hosted on Firebase.
 
-1.  **Navigate to the frontend folder:**bashCollapseWrapCopycd ../frontend _\# From the backend folder, go back and into frontend_
-    
-2.  **Install dependencies:**bashCollapseWrapCopynpm install
-    
-3.  **Update the API base URL:**
-    
-    *   Open src/config.js (or your API config file) and set the backend URL:javascriptCollapseWrapCopyexport const API\_BASE\_URL = 'https://swachhnet-backend.yourusername.workers.dev';
-        
-    *   Replace with your actual Cloudflare Worker URL from the backend deployment.
-        
-4.  **Update Google Maps API key:**
-    
-    *   In public/index.html, find the Google Maps script and add your key:htmlCollapseWrapCopy
-        
-    *   Replace YOUR\_GOOGLE\_MAPS\_API\_KEY with your actual key.
-        
-5.  **Build the static files:**bashCollapseWrapCopynpm run build
-    
-    *   This generates files in a build/ folder (or similar, depending on your setup).
-        
-6.  **Initialize Firebase (if not already done):**bashCollapseWrapCopyfirebase init
-    
-    *   Select "Hosting" when prompted.
-        
-    *   Choose your Firebase project (create one if needed).
-        
-    *   Set the public directory to build (or your build output folder).
-        
-7.  **Deploy to Firebase:**bashCollapseWrapCopyfirebase deploy
-    
-    *   You’ll get a hosting URL (e.g., https://your-project.firebaseapp.com). This is where your frontend lives.
-        
+The frontend static files are in `swachhnet-firebase/temp/`. These are hosted on Firebase.
+
+
+1. **Navigate to the frontend folder:**
+   ```bash
+   cd ../swachhnet-firebase/temp  # From swachhnet-wrangler/, go back and into temp
+   ```
+
+
+2. **Install dependencies:**
+   - If there’s a `package.json`, run:
+     ```bash
+     npm install
+     ```
+   - If not, you might need to set up a basic React/Vite project (see note below).
+
+
+3. **Update the API base URL:**
+   - Open `script.js` (or another config file) and update the API URL to your Cloudflare Worker URL:
+     ```javascript
+     const API_URL = "Your-Cloudwrangler-URL";
+     ```
+   - Replace with your deployed backend URL.
+
+
+4. **Update Google Maps API key:**
+   - In `index.html`, find the Google Maps script and add your key:
+     ```html
+     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+     ```
+   - Replace `Your_Google_Maps_API_Key` with your actual key.
+
+
+5. **Build the static files:**
+   - If you have a build script (e.g., for React), run:
+     ```bash
+     npm run build
+     ```
+   - This creates a `build/` folder (or similar). If no build script exists, assume `temp/` contains pre-built files.
+
+
+6. **Initialize Firebase:**
+   ```bash
+   firebase init
+   ```
+   - Select "Hosting" when prompted.
+   - Choose your Firebase project (create one if needed).
+   - Set the public directory to `build` (if built) or `temp` (if pre-built files are in `temp/`).
+
+
+7. **Deploy to Firebase:**
+   ```bash
+   firebase deploy
+   ```
+   - You’ll get a URL (e.g., `https://your-project.firebaseapp.com` or similar). This is your live frontend.
+
+
+**Note:** If `temp/` only has raw HTML/CSS/JS files without a `package.json`, users can skip `npm install` and `npm run build`, and directly use `temp/` as the public directory. If it’s a React project, they’ll need to set it up with `npm init react-app` or similar first.
+
 
 ### Running the Project
 
-*   **Backend Locally:** Run wrangler dev in the swachhnet-wrangler/ folder for testing.
-    
-*   **Frontend Locally:** Use npm run serve in the swachhnet-firebase/ folder (if you have a serve script), or test the deployed version at your Firebase URL.
-    
-*   **Full App:** Deploy both parts and access the frontend URL, which will call the backend endpoints.
+
+- **Backend Locally:** From `swachhnet-wrangler/`, run:
+  ```bash
+  wrangler dev
+  ```
+- **Frontend Locally:** If there’s a dev server (e.g., `npm start`), run it in `swachhnet-firebase/temp/`. Otherwise, test the deployed Firebase URL.
+- **Full App:** Deploy both parts and visit the Firebase URL, which connects to the Cloudflare backend.
+
+
+---
+
+Having trouble running files? Contact Me: [Linkedin](https://www.linkedin.com/in/shesha-sai-geethri-734311258/)
     
 
 How to Use It
@@ -166,35 +268,16 @@ With SwachhNet running:
 
 MVP in Action
 -------------
+Watch SwachhNet in action: [Mvp link](https://swachhnet-project.web.app/).
+Here’s what SwachhNet looks like in action 
 
-Here’s what SwachhNet looks like in action (add screenshots to an images/ folder in your repo):
 
-*   **Homepage:** A banner says “Join the SwachhNet Revolution!” with buttons for key actions.markdownCollapseWrapCopy!\[Homepage\](images/homepage.png)
+*   **Homepage:**  ![Home_Page](swachhnet-firebase/temp/images/mvp1.png)
+
     
-*   **Dustbin Map:** Green and red dots on a Google Map, centered on your location.markdownCollapseWrapCopy!\[Dustbin Map\](images/map.png)
-    
-*   **Waste Report Form:** A form with fields and an AI description button.markdownCollapseWrapCopy!\[Report Waste\](images/report.png)
-    
-*   **Rewards Page:** A grid of rewards with your points displayed.markdownCollapseWrapCopy!\[Rewards\](images/rewards.png)
+*   **Dustbin Map:**  ![Find_Dustbins](swachhnet-firebase/temp/images/mvp2.png)
     
 
-Contributing
-------------
-
-Want to improve SwachhNet? Here’s how:
-
-1.  Fork the repo on GitHub.
-    
-2.  Create a branch: git checkout -b your-feature-name
-    
-3.  Make changes and commit: git commit -m "Added this cool thing"
-    
-4.  Push: git push origin your-feature-name
-    
-5.  Submit a pull request on the original repo.
-    
-
-I’d love your ideas—let’s make SwachhNet even better together!
 
 Acknowledgments
 ---------------
@@ -206,7 +289,5 @@ Thanks to:
 *   **Gemini AI:** Powers the chatbot and image analysis.
     
 *   **Cloudflare Workers & Firebase:** Hosting the backend and frontend.
-    
-*   **Open-Source Community:** React, Node.js, and more made this possible.
-    
+        
 *   You, for keeping the world cleaner!
